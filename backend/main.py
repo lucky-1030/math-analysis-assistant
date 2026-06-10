@@ -39,8 +39,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 持久化存储路径
-DATA_DIR = Path(__file__).parent / "data"
+# 持久化存储路径（Vercel 用 /tmp，本地用 backend/data）
+if os.environ.get("VERCEL"):
+    DATA_DIR = Path("/tmp")
+else:
+    DATA_DIR = Path(__file__).parent / "data"
 DATA_FILE = DATA_DIR / "chapters_data.json"
 
 
