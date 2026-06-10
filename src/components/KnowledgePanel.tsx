@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { toPng } from 'html-to-image';
-import { Download, Image, FileText, X } from 'lucide-react';
+import { Image, FileText, X } from 'lucide-react';
 import type { KnowledgeNode } from '../data/mockData';
 
 interface KnowledgePanelProps {

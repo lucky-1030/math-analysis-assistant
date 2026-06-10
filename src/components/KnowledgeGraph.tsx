@@ -77,12 +77,9 @@ function getLayoutedElements(
     }
   });
 
-  // 孤立节点垂直排列
+  // 孤立节点也用 dagre，dagre 会自动处理未连接的节点
   const orphans = nodes.filter((n) => !connectedIds.has(n.id));
-  let orphanY = 0;
-  orphans.forEach((n, i) => {
-    g.setNode(n.id, { width: NODE_WIDTH, height: NODE_HEIGHT });
-    // 手动给孤立节点分配位置（放在布局底部）
+  orphans.forEach((n) => {
     g.setNode(n.id, { width: NODE_WIDTH, height: NODE_HEIGHT });
   });
 

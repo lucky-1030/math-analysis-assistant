@@ -1,0 +1,15 @@
+services:
+  # 后端 API 服务
+  - type: web
+    name: math-assistant-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: LLM_PROVIDER
+        sync: false
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: ALLOW_ALL_ORIGINS
+        value: "1"
